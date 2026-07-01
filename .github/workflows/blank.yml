@@ -18,7 +18,20 @@ defaults:
     working-directory: ./DEV
 
 env:
-  ARM_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
-  ARM_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
-  ARM_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+  ARM_CLIENT_ID: ${{secrets.AZURE_CLIENT_ID}}
+  ARM_TENANT_ID: ${{secrets.AZURE_TENANT_ID}}
+  ARM_SUBSCRIPTION_ID: ${{secrets.AZURE_SUBSCRIPTION_ID}}
   ARM_USE_OIDC: true
+
+jobs:
+
+  terraform_scan:
+    name: Terraform scan
+
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./DEV
+  steps:
+    - name: Checkout
+    - uses: actions/checkout@v7.0.0
