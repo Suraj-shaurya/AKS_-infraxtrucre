@@ -7,6 +7,6 @@ module "rg" {
 module "aks" {
     depends_on = [ module.rg ]
     source = "../modules/aks"
-    aks_clusters = var.aks_clusters
+    aks_clusters = var.aks_clusters 
   
 }
