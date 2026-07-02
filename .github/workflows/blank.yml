@@ -52,13 +52,10 @@ jobs:
         continue-on-error: true
 
 
-jobs:
-  - name: Terraform Init & Plan
-
+  terraform_init_plan:
+    name: Terraform Init & Plan
     needs: terraform_scan
-
     if: github.event_name == 'pull_request'
-
     runs-on: ubuntu-latest
 
     steps:
@@ -74,7 +71,7 @@ jobs:
 
       - name: Terraform Plan
         run: terraform plan
- 
+
 
 
 
